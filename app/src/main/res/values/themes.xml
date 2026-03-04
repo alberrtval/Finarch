@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Finarch" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/cl_principal</item>
+        <item name="colorPrimaryVariant">@color/cl_principalSc</item>
+        <item name="colorSecondary">@color/cl_secundario</item>
+        <item name="android:colorBackground">@color/cl_fondo</item>
+        <item name="colorSurface">@color/cl_superficie</item>
+        <item name="colorError">@color/cl_error</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Theme.Finarch" parent="Base.Theme.Finarch" />
+</resources>

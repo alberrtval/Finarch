@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cl_principal">#1565C0</color>
+    <color name="cl_principalSc">#0D47A1</color>
+    <color name="cl_secundario">#00897B</color>
+    <color name="cl_secundarioSc">#00695C</color>
+    <color name="cl_fondo">#F5F7FA</color>
+    <color name="cl_superficie">#FFFFFF</color>
+    <color name="cl_error">#C62828</color>
+    <color name="cl_texto_princ">#1A1A2E</color>
+    <color name="cl_texto_sec">#546E7A</color>
+    <color name="cl_divisor">#E0E0E0</color>
+    <color name="cl_ingresos">#00897B</color>
+    <color name="cl_gastos">#C62828</color>
+
+</resources>
