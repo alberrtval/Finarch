@@ -9,8 +9,10 @@
     <color name="cl_error">#C62828</color>
     <color name="cl_texto_princ">#1A1A2E</color>
     <color name="cl_texto_sec">#546E7A</color>
+    <color name="cl_text_ter">#A7E8BD</color>
     <color name="cl_divisor">#E0E0E0</color>
     <color name="cl_ingresos">#00897B</color>
     <color name="cl_gastos">#C62828</color>
-
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 </resources>

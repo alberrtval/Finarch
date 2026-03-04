@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finarch">
         <activity
-            android:name=".bienvenida"
+            android:name=".registrarUsuario"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".bienvenida"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
