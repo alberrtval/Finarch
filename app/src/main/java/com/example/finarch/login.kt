@@ -1,6 +1,9 @@
 package com.example.finarch
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +18,27 @@ class login : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        //Redireccionamiento a vista de olvide la contraseña
+        val tvOlvidocontra: TextView = findViewById(R.id.tvOlvidar)
+        tvOlvidocontra.setOnClickListener {
+            val intent = Intent(this@login, olvidoContra::class.java)
+            startActivity(intent)
+        }
+
+        //Redireccionamiento a vista principal
+        val btnLogin: Button = findViewById(R.id.btnLogin)
+        btnLogin.setOnClickListener {
+            val intent = Intent(this@login, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        //Redireccionamiento a vista de registro
+        val tvRegistrar: TextView = findViewById(R.id.tvRegistrar)
+        tvRegistrar.setOnClickListener {
+            val intent = Intent(this@login, registrarUsuario::class.java)
+            startActivity(intent)
         }
     }
 }

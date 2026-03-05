@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finarch">
         <activity
+            android:name=".olvidoContra"
+            android:exported="false" />
+        <activity
             android:name=".registrarUsuario"
             android:exported="false" />
         <activity
