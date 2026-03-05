@@ -1,6 +1,8 @@
 package com.example.finarch
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,13 @@ class olvidoContra : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        //Redireccion a login por medio de textView
+        val tvLoginVol: TextView = findViewById(R.id.tvLoginVol)
+        tvLoginVol.setOnClickListener {
+            val intent = Intent(this@olvidoContra, login::class.java)
+            startActivity(intent)
         }
     }
 }
