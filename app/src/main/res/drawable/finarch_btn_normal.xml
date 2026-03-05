@@ -1,19 +1,21 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Sombra (la capa de abajo) -->
+    <!-- Sombra -->
     <item android:left="4dp" android:top="4dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/black"/>
-            <corners android:radius="8dp"/>
+            <solid android:color="?attr/finarchBtnShadowColor"/>
+            <corners android:radius="?attr/finarchBtnRadius"/>
         </shape>
     </item>
 
-    <!-- Botón (la capa de arriba) -->
+    <!-- Cara del botón -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/cl_secundario"/>
-            <stroke android:width="2dp" android:color="@color/black"/>
-            <corners android:radius="8dp"/>
+            <solid android:color="?attr/finarchBtnFaceColor"/>
+            <stroke
+                android:width="2dp"
+                android:color="?attr/finarchBtnStrokeColor"/>
+            <corners android:radius="?attr/finarchBtnRadius"/>
         </shape>
     </item>
 

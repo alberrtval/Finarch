@@ -1,11 +1,13 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Al presionar, quitamos la sombra y movemos el botón -->
+    <!-- Al presionar: sin sombra + desplazado -->
     <item android:left="4dp" android:top="4dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/cl_secundario"/>
-            <stroke android:width="2dp" android:color="@color/black"/>
-            <corners android:radius="8dp"/>
+            <solid android:color="?attr/finarchBtnFacePressedColor"/>
+            <stroke
+                android:width="2dp"
+                android:color="?attr/finarchBtnStrokeColor"/>
+            <corners android:radius="?attr/finarchBtnRadius"/>
         </shape>
     </item>
 

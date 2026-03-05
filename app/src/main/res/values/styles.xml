@@ -1,5 +1,8 @@
 <resources>
 
+    <!-- =========================
+         BASE
+         ========================= -->
     <style name="FinarchButton.Base" parent="Widget.Material3.Button">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
@@ -10,21 +13,44 @@
 
         <item name="cornerRadius">8dp</item>
 
-        <!-- Quita insets raros de MaterialButton -->
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
     </style>
 
-    <!-- Botón sin efecto 3D -->
     <style name="FinarchButton" parent="FinarchButton.Base">
         <item name="android:elevation">2dp</item>
     </style>
 
-    <!-- Botón con efecto 3D -->
+    <style name="ThemeOverlay" />
+
+    <!-- Overlay base (Principal) -->
+    <style name="ThemeOverlay.FinarchButton" parent="ThemeOverlay">
+        <item name="finarchBtnFaceColor">@color/cl_secundario</item>
+        <item name="finarchBtnFacePressedColor">@color/cl_secundarioSc</item>
+        <item name="finarchBtnShadowColor">@color/black</item>
+        <item name="finarchBtnStrokeColor">@color/black</item>
+        <item name="finarchBtnRadius">8dp</item>
+    </style>
+
+    <!-- Overlay Secondary (hereda del base) -->
+    <style name="ThemeOverlay.FinarchButton.Secondary" parent="ThemeOverlay.FinarchButton">
+        <item name="finarchBtnFaceColor">@color/cl_principal</item>
+        <item name="finarchBtnFacePressedColor">@color/cl_principalSc</item>
+    </style>
+
+
+    <!-- =========================
+         BOTÓN 3D
+         ========================= -->
     <style name="FinarchButton3D" parent="FinarchButton.Base">
         <item name="android:background">@drawable/finarch_btn_selector</item>
         <item name="backgroundTint">@null</item>
         <item name="android:elevation">0dp</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.FinarchButton</item>
+    </style>
+
+    <style name="FinarchButton3D.Secundario" parent="FinarchButton3D">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.FinarchButton.Secondary</item>
     </style>
 
 </resources>

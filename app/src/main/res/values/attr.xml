@@ -1,0 +1,7 @@
+<resources>
+    <attr name="finarchBtnFaceColor" format="color"/>
+    <attr name="finarchBtnFacePressedColor" format="color"/>
+    <attr name="finarchBtnShadowColor" format="color"/>
+    <attr name="finarchBtnStrokeColor" format="color"/>
+    <attr name="finarchBtnRadius" format="dimension"/>
+</resources>

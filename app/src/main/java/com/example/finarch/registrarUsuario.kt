@@ -1,6 +1,9 @@
 package com.example.finarch
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +18,20 @@ class registrarUsuario : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        //Redireccion a login por medio de boton
+        val button: Button = findViewById(R.id.btnRegistrarse)
+        button.setOnClickListener {
+            val intent = Intent(this@registrarUsuario, login::class.java)
+            startActivity(intent)
+        }
+
+        //Redireccion a login por medio de textView
+        val tvRegistrar: TextView = findViewById(R.id.tvRegistrar)
+        tvRegistrar.setOnClickListener {
+            val intent = Intent(this@registrarUsuario, login::class.java)
+            startActivity(intent)
         }
     }
 }
