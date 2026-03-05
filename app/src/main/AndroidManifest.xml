@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finarch">
         <activity
+            android:name=".perfil"
+            android:exported="false" />
+        <activity
             android:name=".olvidoContra"
             android:exported="false" />
         <activity
