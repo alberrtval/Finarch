@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class registrarUsuario : AppCompatActivity() {
+class RegistrarUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,14 +23,14 @@ class registrarUsuario : AppCompatActivity() {
         //Redireccion a login por medio de boton
         val button: Button = findViewById(R.id.btnRegistrarse)
         button.setOnClickListener {
-            val intent = Intent(this@registrarUsuario, login::class.java)
+            val intent = Intent(this@RegistrarUsuario, Login::class.java)
             startActivity(intent)
         }
 
         //Redireccion a login por medio de textView
         val tvRegistrar: TextView = findViewById(R.id.tvRegistrar)
         tvRegistrar.setOnClickListener {
-            val intent = Intent(this@registrarUsuario, login::class.java)
+            val intent = Intent(this@RegistrarUsuario, Login::class.java)
             startActivity(intent)
         }
     }

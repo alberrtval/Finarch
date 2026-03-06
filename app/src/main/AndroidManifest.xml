@@ -12,19 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finarch">
         <activity
-            android:name=".perfil"
+            android:name=".ReportesResumen"
             android:exported="false" />
         <activity
-            android:name=".olvidoContra"
+            android:name=".Perfil"
             android:exported="false" />
         <activity
-            android:name=".registrarUsuario"
+            android:name=".OlvidoContra"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name=".RegistrarUsuario"
             android:exported="false" />
         <activity
-            android:name=".bienvenida"
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Bienvenida"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

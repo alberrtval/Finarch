@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class olvidoContra : AppCompatActivity() {
+class OlvidoContra : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,7 +22,7 @@ class olvidoContra : AppCompatActivity() {
         //Redireccion a login por medio de textView
         val tvLoginVol: TextView = findViewById(R.id.tvLoginVol)
         tvLoginVol.setOnClickListener {
-            val intent = Intent(this@olvidoContra, login::class.java)
+            val intent = Intent(this@OlvidoContra, Login::class.java)
             startActivity(intent)
         }
     }

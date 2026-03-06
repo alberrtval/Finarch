@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardMovement"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="16dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/cl_secundario">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="14dp">
+
+        <!-- Barra lateral se cambia el color si es gasto o ingreso -->
+        <View
+            android:id="@+id/viewIndicator"
+            android:layout_width="6dp"
+            android:layout_height="48dp"
+            android:background="@color/cl_divisor"
+            android:layout_marginEnd="12dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/cl_secundarioSc"
+            android:layout_marginEnd="12dp">
+
+            <ImageView
+                android:id="@+id/imgType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_wallet_24"
+                app:tint="@color/cl_texto_princ"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Supermercado"
+                android:textColor="@color/cl_texto_princ"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_regular" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comida • 05/03/2026"
+                android:textColor="@color/cl_text_ter"
+                android:textSize="13sp"
+                android:fontFamily="@font/inter_regular"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tvNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nota opcional..."
+                android:textColor="@color/cl_text_ter"
+                android:textSize="12sp"
+                android:fontFamily="@font/inter_regular"
+                android:alpha="0.9"
+                android:layout_marginTop="4dp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-$ 25.00"
+                android:textColor="@color/cl_texto_princ"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_regular" />
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gasto"
+                android:textColor="@color/cl_text_ter"
+                android:textSize="12sp"
+                android:fontFamily="@font/inter_regular"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

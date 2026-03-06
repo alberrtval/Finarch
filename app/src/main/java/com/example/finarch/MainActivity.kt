@@ -2,7 +2,6 @@ package com.example.finarch
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,9 +19,17 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        //Redireccionamiento a la vista del perfil
         val imProfile: ImageView = findViewById(R.id.imgProfile)
         imProfile.setOnClickListener {
-            val intent = Intent(this@MainActivity, perfil::class.java)
+            val intent = Intent(this@MainActivity, Perfil::class.java)
+            startActivity(intent)
+        }
+
+        //Redireccionamiento a la vista de reportes
+        val btnReports = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnReportsMain)
+        btnReports.setOnClickListener {
+            val intent = Intent(this@MainActivity, ReportesResumen::class.java)
             startActivity(intent)
         }
     }

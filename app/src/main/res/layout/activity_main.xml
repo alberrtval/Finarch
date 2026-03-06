@@ -334,7 +334,7 @@
                     android:layout_marginEnd="8dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnReports"
+                    android:id="@+id/btnReportsMain"
                     style="@style/FinarchButton3D"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

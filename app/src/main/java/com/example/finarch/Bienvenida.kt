@@ -9,35 +9,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class login : AppCompatActivity() {
+class Bienvenida : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_bienvenida)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        //Redireccionamiento a vista de olvide la contraseña
-        val tvOlvidocontra: TextView = findViewById(R.id.tvOlvidar)
-        tvOlvidocontra.setOnClickListener {
-            val intent = Intent(this@login, olvidoContra::class.java)
+        //Redireccion al login
+        val button: Button = findViewById(R.id.btnInicioSesion)
+        button.setOnClickListener {
+            val intent = Intent(this@Bienvenida, Login::class.java)
             startActivity(intent)
         }
 
-        //Redireccionamiento a vista principal
-        val btnLogin: Button = findViewById(R.id.btnLogin)
-        btnLogin.setOnClickListener {
-            val intent = Intent(this@login, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-        //Redireccionamiento a vista de registro
-        val tvRegistrar: TextView = findViewById(R.id.tvRegistrar)
-        tvRegistrar.setOnClickListener {
-            val intent = Intent(this@login, registrarUsuario::class.java)
+        //redireccion a pantalla de registro
+        val textview: TextView = findViewById(R.id.tvRegistrar)
+        textview.setOnClickListener {
+            val intent = Intent(this@Bienvenida, RegistrarUsuario::class.java)
             startActivity(intent)
         }
     }

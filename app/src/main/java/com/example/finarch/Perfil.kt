@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class perfil : AppCompatActivity() {
+class Perfil : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,21 +30,21 @@ class perfil : AppCompatActivity() {
         //Redireccion a pantalla de bienvenida
         val button: Button = findViewById(R.id.btnLogout)
         button.setOnClickListener {
-            val intent = Intent(this@perfil, bienvenida::class.java)
+            val intent = Intent(this@Perfil, Bienvenida::class.java)
             startActivity(intent)
         }
 
         //Redireccion a pantalla para cambiar información del perfil
         val ivModificaInfo: ImageView = findViewById(R.id.ivModificarInfo)
         ivModificaInfo.setOnClickListener {
-            val intent = Intent(this@perfil, registrarUsuario::class.java)
+            val intent = Intent(this@Perfil, RegistrarUsuario::class.java)
             startActivity(intent)
         }
 
         //Redireccion a pantalla para cambiar información del perfil
         val ivcambiacontra: ImageView = findViewById(R.id.ivCambiarcontra)
         ivcambiacontra.setOnClickListener {
-            val intent = Intent(this@perfil, olvidoContra::class.java)
+            val intent = Intent(this@Perfil, OlvidoContra::class.java)
             startActivity(intent)
         }
     }

@@ -7,4 +7,22 @@
         <item>MXN - Peso MX</item>
         <item>CRC - Colón CR</item>
     </string-array>
+
+    <string-array name="categories_list">
+        <item>Todas</item>
+        <item>Comida</item>
+        <item>Transporte</item>
+        <item>Servicios</item>
+        <item>Entretenimiento</item>
+        <item>Salud</item>
+        <item>Educación</item>
+        <item>Otros</item>
+    </string-array>
+
+    <string-array name="sort_list">
+        <item>Más recientes</item>
+        <item>Más antiguos</item>
+        <item>Monto mayor</item>
+        <item>Monto menor</item>
+    </string-array>
 </resources>

@@ -23,7 +23,6 @@
 
     <style name="ThemeOverlay" />
 
-    <!-- Overlay base (Principal) -->
     <style name="ThemeOverlay.FinarchButton" parent="ThemeOverlay">
         <item name="finarchBtnFaceColor">@color/cl_secundario</item>
         <item name="finarchBtnFacePressedColor">@color/cl_secundarioSc</item>
@@ -32,12 +31,10 @@
         <item name="finarchBtnRadius">8dp</item>
     </style>
 
-    <!-- Overlay Secondary (hereda del base) -->
     <style name="ThemeOverlay.FinarchButton.Secondary" parent="ThemeOverlay.FinarchButton">
         <item name="finarchBtnFaceColor">@color/cl_principal</item>
         <item name="finarchBtnFacePressedColor">@color/cl_principalSc</item>
     </style>
-
 
     <!-- =========================
          BOTÓN 3D
