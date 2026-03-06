@@ -1,0 +1,10 @@
+<resources>
+    <string-array name="currency_list">
+        <item>USD - Dólar</item>
+        <item>EUR - Euro</item>
+        <item>JPY - Yen</item>
+        <item>GBP - Libra</item>
+        <item>MXN - Peso MX</item>
+        <item>CRC - Colón CR</item>
+    </string-array>
+</resources>
