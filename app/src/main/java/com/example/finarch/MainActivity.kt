@@ -32,5 +32,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, ReportesResumen::class.java)
             startActivity(intent)
         }
+
+        //Redireccionamiento a la vista de ingresos
+        val btnIngresos = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnIngresoMovimiento)
+        btnIngresos.setOnClickListener {
+            val intent = Intent(this@MainActivity, IngresoMovimientos::class.java)
+            startActivity(intent)
+        }
     }
 }

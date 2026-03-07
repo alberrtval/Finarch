@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finarch">
         <activity
+            android:name=".IngresoMovimientos"
+            android:exported="false" />
+        <activity
             android:name=".ReportesResumen"
             android:exported="false" />
         <activity

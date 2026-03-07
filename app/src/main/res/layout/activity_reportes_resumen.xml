@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cl_principal"
+    android:background="@color/cl_principalSc"
     tools:context=".ReportesResumen">
 
     <LinearLayout
@@ -69,7 +69,7 @@
             android:padding="8dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_download_24"
-            app:tint="@color/cl_texto_princ"
+            app:tint="@color/cl_text_ter"
             app:tintMode="src_in" />
     </LinearLayout>
 
@@ -82,6 +82,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:hint="Buscar (ej. súper, salario, renta...)"
+        android:textColorHint="@color/cl_text_ter"
         app:startIconDrawable="@drawable/ic_search_24"
         app:startIconTint="@color/cl_text_ter"
         app:endIconMode="clear_text"
@@ -178,6 +179,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:hint="Desde"
+                    android:textColorHint="@color/cl_text_ter"
                     app:endIconMode="custom"
                     app:endIconDrawable="@drawable/ic_calendar_24"
                     app:endIconTint="@color/cl_text_ter"
@@ -212,6 +214,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:hint="Hasta"
+                    android:textColorHint="@color/cl_text_ter"
                     app:endIconMode="custom"
                     app:endIconDrawable="@drawable/ic_calendar_24"
                     app:endIconTint="@color/cl_text_ter"
@@ -254,6 +257,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:hint="Categoría"
+                    android:textColorHint="@color/cl_text_ter"
                     app:endIconMode="dropdown_menu"
                     app:boxBackgroundMode="outline"
                     app:boxBackgroundColor="@color/cl_secundarioSc"
@@ -284,6 +288,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:hint="Orden"
+                    android:textColorHint="@color/cl_text_ter"
                     app:endIconMode="dropdown_menu"
                     app:boxBackgroundMode="outline"
                     app:boxBackgroundColor="@color/cl_secundarioSc"
@@ -322,6 +327,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:hint="Monto mín."
+                    android:textColorHint="@color/cl_text_ter"
                     app:boxBackgroundMode="outline"
                     app:boxBackgroundColor="@color/cl_secundarioSc"
                     app:boxCornerRadiusTopStart="12dp"
@@ -350,6 +356,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:hint="Monto máx."
+                    android:textColorHint="@color/cl_text_ter"
                     app:boxBackgroundMode="outline"
                     app:boxBackgroundColor="@color/cl_secundarioSc"
                     app:boxCornerRadiusTopStart="12dp"

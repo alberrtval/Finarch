@@ -25,4 +25,13 @@
         <item>Monto mayor</item>
         <item>Monto menor</item>
     </string-array>
+
+    <string-array name="payment_methods_list">
+        <item>Efectivo</item>
+        <item>Tarjeta débito</item>
+        <item>Tarjeta crédito</item>
+        <item>Transferencia</item>
+        <item>Billetera digital</item>
+        <item>Otro</item>
+    </string-array>
 </resources>

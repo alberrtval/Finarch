@@ -259,7 +259,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alertas"
-                android:textColor="@color/cl_texto_sec"
+                android:textColor="@color/cl_texto_princ"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/inter_regular"
@@ -310,7 +310,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Accesos rápidos"
-                android:textColor="@color/cl_texto_sec"
+                android:textColor="@color/cl_texto_princ"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/inter_regular"
@@ -324,7 +324,7 @@
                 android:weightSum="2">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddMovement"
+                    android:id="@+id/btnIngresoMovimiento"
                     style="@style/FinarchButton3D"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -350,7 +350,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Noticias"
-                android:textColor="@color/cl_texto_sec"
+                android:textColor="@color/cl_texto_princ"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/inter_regular"
