@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finarch.model.AlertItem
+import com.example.finarch.model.TipoAlerta
 
 class AlertsAdapter(private val alertas: List<AlertItem>) :
     RecyclerView.Adapter<AlertsAdapter.AlertViewHolder>() {

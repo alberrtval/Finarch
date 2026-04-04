@@ -1,26 +1,181 @@
+#############################################
+# ANDROID / KOTLIN
+#############################################
 *.iml
-.gradle
+.gradle/
 /local.properties
-/.idea/caches
-/.idea/libraries
+/.idea/caches/
+/.idea/libraries/
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/deploymentTargetDropDown.xml
+/.idea/render.experimental.xml
+/.idea/migrations.xml
+/.idea/.gitignore
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.ap_
 
-# APK
-*.apk
-*.aab
+# Módulos de build
+**/build/
+out/
 
-# Logs
-*.log
+# Archivos de caché de Kotlin
+.kotlin/
+kotlin-js-store/
 
-# Keystore
+#############################################
+# FIREBASE 🔥 — CRÍTICO PARA TI
+#############################################
+
+# Archivo de configuración de Firebase (contiene API keys y project ID)
+google-services.json
+
+# Credenciales de Admin SDK (si las usas en scripts o backend)
+*-firebase-adminsdk-*.json
+firebase-adminsdk*.json
+serviceAccountKey.json
+service-account*.json
+service_account*.json
+
+# Firebase local emulator data
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+database-debug.log
+pubsub-debug.log
+ui-debug.log
+.firebaserc
+
+#############################################
+# KEYSTORE Y FIRMA — CRÍTICO
+#############################################
 *.jks
 *.keystore
+*.p12
+*.pfx
+keystore.properties
+signing.properties
+release-keystore.*
+upload-keystore.*
+key.properties
+
+#############################################
+# VARIABLES DE ENTORNO Y SECRETOS
+#############################################
+*.env
+.env
+.env.*
+.env.local
+.env.production
+secrets.properties
+secrets.xml
+apikeys.properties
+api_keys.properties
+config.properties
+credentials.properties
+private.properties
+
+# Nunca subas archivos con tokens o passwords hardcodeados
+*secret*
+*password*
+*credential*
+*token*
+# Excepciones (archivos de ejemplo que SÍ deben subirse)
+!*secret*.example
+!*secret*.template
+!*credential*.example
+
+#############################################
+# BASE DE DATOS — PENSANDO EN TU POSTGRESQL
+#############################################
+*.sqlite
+*.sqlite3
+*.db
+database.properties
+db.properties
+db_config.properties
+# Credenciales de conexión a Postgres u otra BD relacional
+database_url.properties
+connection_string.properties
+jdbc.properties
+
+#############################################
+# APK / AAB / RELEASES
+#############################################
+*.apk
+*.aab
+*.ap_
+*.dex
+
+#############################################
+# LOGS Y REPORTES
+#############################################
+*.log
+*.log.*
+logs/
+crash-reports/
+lint-results/
+lint-results-*.html
+lint-results-*.xml
+
+#############################################
+# GRADLE
+#############################################
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+.gradletasknamecache
+local.properties
+
+#############################################
+# ANDROID STUDIO / INTELLIJ
+#############################################
+*.class
+*.so
+# Toda la carpeta .idea excepto lo necesario para el proyecto
+.idea/
+# Si quieres conservar algunos ajustes del proyecto, usa esto en su lugar:
+# !.idea/compiler.xml
+# !.idea/codeStyles/
+# !.idea/inspectionProfiles/
+*.xml~
+*.bak
+
+#############################################
+# macOS / LINUX / WINDOWS
+#############################################
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+._*
+.Spotlight-V100
+.Trashes
+
+#############################################
+# NODE / NPM (si usas Firebase CLI o scripts)
+#############################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+#############################################
+# PYTHON (si usas scripts de backend/ETL)
+#############################################
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.egg-info/

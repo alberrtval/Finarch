@@ -1,4 +1,4 @@
-package com.example.finarch
+package com.example.finarch.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finarch.model.AlertItem
+import com.example.finarch.AlertsAdapter
+import com.example.finarch.R
+import com.example.finarch.model.TipoAlerta
+import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Redireccionamiento a la vista de reportes
-        val btnReports = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnReportsMain)
+        val btnReports = findViewById<MaterialButton>(R.id.btnReportsMain)
         btnReports.setOnClickListener {
             val intent = Intent(this@MainActivity, ReportesResumen::class.java)
             startActivity(intent)
         }
 
         //Redireccionamiento a la vista de ingresos
-        val btnIngresos = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnIngresoMovimiento)
+        val btnIngresos = findViewById<MaterialButton>(R.id.btnIngresoMovimiento)
         btnIngresos.setOnClickListener {
             val intent = Intent(this@MainActivity, IngresoMovimientos::class.java)
             startActivity(intent)

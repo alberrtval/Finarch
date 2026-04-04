@@ -1,4 +1,4 @@
-package com.example.finarch
+package com.example.finarch.model
 
 data class AlertItem(
     val mensaje: String,

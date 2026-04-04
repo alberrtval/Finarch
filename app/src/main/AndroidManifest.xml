@@ -12,25 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finarch">
         <activity
-            android:name=".IngresoMovimientos"
+            android:name=".ui.IngresoMovimientos"
             android:exported="false" />
         <activity
-            android:name=".ReportesResumen"
+            android:name=".ui.ReportesResumen"
             android:exported="false" />
         <activity
-            android:name=".Perfil"
+            android:name=".ui.Perfil"
             android:exported="false" />
         <activity
-            android:name=".OlvidoContra"
+            android:name=".ui.auth.OlvidoContra"
             android:exported="false" />
         <activity
-            android:name=".RegistrarUsuario"
+            android:name=".ui.auth.RegistrarUsuario"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".ui.auth.Login"
             android:exported="false" />
         <activity
-            android:name=".Bienvenida"
+            android:name=".ui.Bienvenida"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.finarch
+package com.example.finarch.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.finarch.R
+import com.example.finarch.ui.auth.OlvidoContra
+import com.example.finarch.ui.auth.RegistrarUsuario
 
 class Perfil : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
