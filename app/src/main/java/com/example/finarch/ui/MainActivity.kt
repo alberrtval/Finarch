@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finarch.model.AlertItem
-import com.example.finarch.AlertsAdapter
+import com.example.finarch.utils.AlertsAdapter
 import com.example.finarch.R
 import com.example.finarch.model.TipoAlerta
 import com.google.android.material.button.MaterialButton

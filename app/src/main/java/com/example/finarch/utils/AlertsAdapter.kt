@@ -1,4 +1,4 @@
-package com.example.finarch
+package com.example.finarch.utils
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finarch.R
 import com.example.finarch.model.AlertItem
 import com.example.finarch.model.TipoAlerta
 
