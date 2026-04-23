@@ -25,3 +25,22 @@ fun String.validacionMonto(): Boolean{
     val regex = Regex("^(0\\.\\d*[1-9]\\d*|[1-9]\\d*(\\.\\d+)?)\$")
     return regex.matches(this)
 }
+
+//Validación utilizada para el registro del usuario
+fun validacionDeUsusario(nombre: String, email: String, contra: String, contraConf: String): clasificacionError?
+{
+    var respuesta: clasificacionError?
+    respuesta = when{
+        nombre.isEmpty() -> clasificacionError(CampoError.NOMBRE, "El nombre es obligatorio")
+        email.isEmpty() -> clasificacionError(CampoError.EMAIL, "El correo es obligatorio")
+        contra.isEmpty() -> clasificacionError(CampoError.CONTRASENA, "La contraseña es obligatorio")
+        contraConf.isEmpty() -> clasificacionError(CampoError.CONFIRMAR, "La contraseña es obligatoria")
+        !nombre.validacionSoloTexto() -> clasificacionError(CampoError.NOMBRE, "Solo se permiten letras")
+        !email.validacionCorreo() -> clasificacionError(CampoError.EMAIL, "Ingrese un correo valido")
+        !contra.validacionContraseña() -> clasificacionError(CampoError.CONTRASENA, "La contaseña debe contener mas de 6 carácteres y un número")
+        !contraConf.validacionContraseña() -> clasificacionError(CampoError.CONFIRMAR, "La contaseña debe contener mas de 6 carácteres y un número")
+        contra != contraConf -> clasificacionError(CampoError.CONTRASENAYCONF, "contraconf")
+        else -> null
+    }
+    return respuesta
+}
