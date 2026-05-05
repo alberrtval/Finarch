@@ -1,6 +1,7 @@
 package com.example.finarch.ui.auth
 
 import android.content.Intent
+import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -15,6 +16,7 @@ import com.example.finarch.utils.CampoError
 import com.example.finarch.utils.validacionDeUsusario
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.firestore.firestore
 
 class RegistrarUsuario : AppCompatActivity() {
@@ -23,6 +25,7 @@ class RegistrarUsuario : AppCompatActivity() {
     private lateinit var binding: ActivityRegistrarUsuarioBinding
     //Inicializacion de variable para usar firebase authentification
     private lateinit var auth: FirebaseAuth
+    val db = Firebase.firestore
     companion object{
         private const val TAG = "ResigtrarUSuario"
     }
@@ -77,7 +80,7 @@ class RegistrarUsuario : AppCompatActivity() {
 
             if(resultadoValidacion == null){
                 //Inicializacion de variable para acceder a firestore
-                val db = Firebase.firestore
+
 
                 //Creacion de credenciales de usuario para ralizar login
                 auth.createUserWithEmailAndPassword(email.editText?.text.toString(), contra.editText?.text.toString())
@@ -105,12 +108,23 @@ class RegistrarUsuario : AppCompatActivity() {
                             }
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                        val mensaje = if(e is FirebaseAuthException)
+                        {
+                            when (e.errorCode){
+                                "ERROR_EMAIL_ALREADY_IN_USE" -> "Cuenta ya vinculada al correo"
+                                else ->  e.message.toString()
+                            }
+                        }
+                        else{
+                             "ERROR!"
+                        }
+                        Toast.makeText(this, "Error: ${mensaje}", Toast.LENGTH_SHORT).show()
+                        Log.w(TAG, "Error: ${e.message}")
                     }
             }
             else{
-                var campo = resultadoValidacion.campo
-                var mensaje = resultadoValidacion.mensaje
+                val campo = resultadoValidacion.campo
+                val mensaje = resultadoValidacion.mensaje
 
                 when(campo){
                     CampoError.NOMBRE -> nombre.error = mensaje
