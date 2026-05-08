@@ -27,10 +27,9 @@ fun String.validacionMonto(): Boolean{
 }
 
 //Validación utilizada para el registro del usuario
-fun validacionDeUsusario(nombre: String, email: String, contra: String, contraConf: String): clasificacionError?
+fun validacionDeUsusarioRegistro(nombre: String, email: String, contra: String, contraConf: String): clasificacionError?
 {
-    var respuesta: clasificacionError?
-    respuesta = when{
+    return when{
         nombre.isEmpty() -> clasificacionError(CampoError.NOMBRE, "El nombre es obligatorio")
         email.isEmpty() -> clasificacionError(CampoError.EMAIL, "El correo es obligatorio")
         contra.isEmpty() -> clasificacionError(CampoError.CONTRASENA, "La contraseña es obligatorio")
@@ -42,5 +41,16 @@ fun validacionDeUsusario(nombre: String, email: String, contra: String, contraCo
         contra != contraConf -> clasificacionError(CampoError.CONTRASENAYCONF, "contraconf")
         else -> null
     }
-    return respuesta
+}
+
+//Validación utilizada para el registro del usuario
+fun validacionDeUsusarioLogin(email: String, contra: String): clasificacionError?
+{
+    return  when{
+        email.isEmpty() -> clasificacionError(CampoError.EMAIL, "El correo es obligatorio")
+        contra.isEmpty() -> clasificacionError(CampoError.CONTRASENA, "La contraseña es obligatorio")
+        !email.validacionCorreo() -> clasificacionError(CampoError.EMAIL, "Ingrese un correo valido")
+        !contra.validacionContraseña() -> clasificacionError(CampoError.CONTRASENA, "La contaseña debe contener mas de 6 carácteres y un número")
+        else -> null
+    }
 }

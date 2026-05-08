@@ -1,7 +1,6 @@
 package com.example.finarch.ui.auth
 
 import android.content.Intent
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -13,7 +12,7 @@ import androidx.core.widget.addTextChangedListener
 import com.example.finarch.databinding.ActivityRegistrarUsuarioBinding
 import com.example.finarch.model.Usuario
 import com.example.finarch.utils.CampoError
-import com.example.finarch.utils.validacionDeUsusario
+import com.example.finarch.utils.validacionDeUsusarioRegistro
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
@@ -61,14 +60,17 @@ class RegistrarUsuario : AppCompatActivity() {
             nombre.error = null
             nombre.isErrorEnabled = false
         }
+
         email.editText?.addTextChangedListener {
             email.error = null
             email.isErrorEnabled = false
         }
+
         contra.editText?.addTextChangedListener {
             contra.error = null
             contra.isErrorEnabled = false
         }
+
         contraConf.editText?.addTextChangedListener {
             contraConf.error = null
             contraConf.isErrorEnabled = false
@@ -76,12 +78,9 @@ class RegistrarUsuario : AppCompatActivity() {
 
         button.setOnClickListener {
             //Validacion de campos antes de registrar al usuario
-            val resultadoValidacion = validacionDeUsusario(nombre.editText?.text.toString().trim(), email.editText?.text.toString().trim(), contra.editText?.text.toString().trim(), contraConf.editText?.text.toString().trim())
+            val resultadoValidacion = validacionDeUsusarioRegistro(nombre.editText?.text.toString().trim(), email.editText?.text.toString().trim(), contra.editText?.text.toString().trim(), contraConf.editText?.text.toString().trim())
 
             if(resultadoValidacion == null){
-                //Inicializacion de variable para acceder a firestore
-
-
                 //Creacion de credenciales de usuario para ralizar login
                 auth.createUserWithEmailAndPassword(email.editText?.text.toString(), contra.editText?.text.toString())
                     .addOnSuccessListener { resultado ->
