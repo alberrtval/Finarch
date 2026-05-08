@@ -99,6 +99,7 @@ class RegistrarUsuario : AppCompatActivity() {
 
                                 //Redireccion a login por medio de boton
                                 val intent = Intent(this@RegistrarUsuario, Login::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 startActivity(intent)
                             }
                             .addOnFailureListener { e ->
