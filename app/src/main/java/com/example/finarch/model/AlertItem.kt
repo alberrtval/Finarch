@@ -9,3 +9,8 @@ enum class TipoAlerta {
     ADVERTENCIA,  // amarillo
     INFO          // azul
 }
+
+enum class TipoMovimiento{
+    INGRESO,
+    GASTO
+}

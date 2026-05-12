@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finarch">
         <activity
+            android:name=".ui.EditarPresupuestoBottomSheet"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ModificarCategoria"
+            android:exported="false" />
+        <activity
             android:name=".ui.IngresoMovimientos"
             android:exported="false" />
         <activity

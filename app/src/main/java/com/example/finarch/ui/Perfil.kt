@@ -86,6 +86,13 @@ class Perfil : AppCompatActivity() {
             Firebase.auth.signOut()
         }
 
+        //Redireccion a pantalla para administrar categorias
+        val buttonCat: Button = binding.btnCambiarCategoria
+        buttonCat.setOnClickListener {
+            val intent = Intent(this@Perfil, ModificarCategoria::class.java)
+            startActivity(intent)
+        }
+
         //Redireccion a pantalla para cambiar información del perfil
         val ivModificaInfo: ImageView = binding.ivModificarInfo
         ivModificaInfo.setOnClickListener {
