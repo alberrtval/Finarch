@@ -124,12 +124,12 @@
                         android:id="@+id/tvFullName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="Nombre Apellido"
                         android:textColor="@color/cl_texto_princ"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/inter_regular"
-                        android:layout_marginTop="12dp"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvEmail"
@@ -194,34 +194,14 @@
                             android:fontFamily="@font/inter_regular"/>
                     </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilCurrency"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tvCurrencyValue"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Selecciona moneda"
-                        android:textColorHint="@color/cl_texto_princ"
-                        app:endIconMode="dropdown_menu"
-                        app:boxBackgroundMode="outline"
-                        app:boxBackgroundColor="@color/cl_principalSc"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusBottomEnd="12dp"
-                        app:boxStrokeWidth="0dp"
-                        app:boxStrokeWidthFocused="0dp"
-                        app:hintTextColor="@color/cl_text_ter">
-
-                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                            android:id="@+id/acCurrency"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="none"
-                            android:textColorHint="@color/cl_texto_princ"
-                            android:textSize="15sp"
-                            android:fontFamily="@font/inter_regular"
-                            android:padding="8dp"
-                            android:entries="@array/currency_list"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:text="Dolar Estadounidense"
+                        android:textColor="@color/cl_texto_princ"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/inter_regular"/>
 
                     <TextView
                         android:id="@+id/tvCurrencyPreview"
