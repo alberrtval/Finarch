@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo base azul oscuro premium -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="600"
+                android:centerX="0.2"
+                android:centerY="0.3"
+                android:startColor="#4A6FA5"
+                android:centerColor="#1E3A5F"
+                android:endColor="#0A1628" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Overlay translúcido plateado -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="45"
+                android:startColor="#44DEE9F7"
+                android:endColor="#00DEE9F7" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</layer-list>

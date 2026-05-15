@@ -88,7 +88,10 @@ class ModificarCategoria : AppCompatActivity() {
             return
         }
 
-        if (listaCategorias.size >= LIMITE) return
+        if (listaCategorias.size >= LIMITE) {
+            PremiumBottomSheet().show(supportFragmentManager, "Premium")
+            return
+        }
 
         val ref = db.collection("users").document(uid).collection("categorias").document()
         val categoria = Categoria(
@@ -165,7 +168,7 @@ class ModificarCategoria : AppCompatActivity() {
         val cantidad = listaCategorias.size
         binding.tvContador.text = "$cantidad / $LIMITE categorías"
         binding.tvSinCategorias.visibility = if (cantidad == 0) View.VISIBLE else View.GONE
-        binding.btnAgregarCategoria.isEnabled = cantidad < LIMITE
-        binding.tvLimiteAlcanzado.visibility = if (cantidad >= LIMITE) View.VISIBLE else View.GONE
+        binding.btnAgregarCategoria.isEnabled = true
+        binding.tvLimiteAlcanzado.visibility = View.GONE
     }
 }

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_premium"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="👑"
+        android:textSize="52sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finarch Premium"
+        android:textColor="@color/cl_premium_gold"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/rock_regular"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desbloquea todo el potencial"
+        android:textColor="@color/cl_premium_gold_light"
+        android:textSize="13sp"
+        android:fontFamily="@font/inter_regular"
+        android:layout_gravity="center"
+        android:alpha="0.8"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_benefits_card"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✅"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categorías ilimitadas"
+                android:textColor="@color/cl_premium_gold_light"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_regular"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✅"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exportar reportes en PDF"
+                android:textColor="@color/cl_premium_gold_light"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_regular"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✅"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gráficas avanzadas"
+                android:textColor="@color/cl_premium_gold_light"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_regular"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✅"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soporte prioritario 24/7"
+                android:textColor="@color/cl_premium_gold_light"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_regular"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✅"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modo oscuro exclusivo 🌙"
+                android:textColor="@color/cl_premium_gold_light"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_regular"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Solo $4.99 / mes"
+        android:textColor="@color/cl_premium_gold"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/inter_regular"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancela cuando quieras"
+        android:textColor="@color/cl_premium_gold_light"
+        android:textSize="12sp"
+        android:fontFamily="@font/inter_regular"
+        android:layout_gravity="center"
+        android:alpha="0.7"
+        android:layout_marginBottom="20dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_premium"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdquirir"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💎 ¡Adquirir Premium!"
+            android:textColor="#1A1200"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="14dp"
+            app:backgroundTint="@android:color/transparent"
+            app:rippleColor="@color/cl_premium_gold"/>
+
+    </FrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDespues"
+        style="@style/FinarchButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quizás después..."
+        android:textColor="@color/cl_premium_gold_light"
+        android:alpha="0.7"
+        app:backgroundTint="@android:color/transparent"/>
+
+</LinearLayout>
