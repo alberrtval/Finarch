@@ -96,7 +96,7 @@ class Perfil : AppCompatActivity() {
         //Redireccion a pantalla para cambiar información del perfil
         val ivModificaInfo: ImageView = binding.ivModificarInfo
         ivModificaInfo.setOnClickListener {
-            val intent = Intent(this@Perfil, RegistrarUsuario::class.java)
+            val intent = Intent(this@Perfil, ModificarInformacion::class.java)
             startActivity(intent)
         }
 
