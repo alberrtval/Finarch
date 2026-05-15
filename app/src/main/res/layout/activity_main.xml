@@ -229,26 +229,22 @@
                             android:textSize="22sp"
                             android:textStyle="bold"/>
 
-                        <!-- Barra de progreso ingresos -->
-                        <ProgressBar
-                            android:id="@+id/progressIncome"
-                            style="@android:style/Widget.ProgressBar.Horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="6dp"
-                            android:layout_marginTop="10dp"
-                            android:progress="0"
-                            android:max="100"
-                            android:progressDrawable="@drawable/progress_income"/>
-
                         <TextView
-                            android:id="@+id/tvIncomeHint"
+                            android:id="@+id/tvIncomeCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0% de meta"
+                            android:text="0 ingresos este mes"
                             android:textColor="@color/white"
                             android:textSize="11sp"
                             android:fontFamily="@font/inter_regular"
                             android:alpha="0.7"
+                            android:layout_marginTop="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" "
+                            android:textSize="4sp"
                             android:layout_marginTop="4dp"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>

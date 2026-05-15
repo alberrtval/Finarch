@@ -141,6 +141,8 @@ class MainActivity : AppCompatActivity() {
 
             // Actualizar UI con visibilidad actual
             actualizarVisibilidadBalance()
+            val cantidadIngresos = movimientosMes.count { it.tipo == TipoMovimiento.INGRESO }
+            binding.tvIncomeCount.text = "$cantidadIngresos ingreso${if (cantidadIngresos == 1) "" else "s"} este mes"
 
             // Barra de progreso gastos
             val porcentaje = calcularPorcentajeGastos(movimientosMes, categorias)
