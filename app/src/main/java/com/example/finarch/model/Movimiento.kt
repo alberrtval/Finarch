@@ -11,3 +11,8 @@ data class Movimiento(
     val descripcion: String = "",
     val etiquetas: List<String> = emptyList()
 )
+
+enum class TipoMovimiento{
+    INGRESO,
+    GASTO
+}

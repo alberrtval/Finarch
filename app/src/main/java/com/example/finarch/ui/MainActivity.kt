@@ -2,26 +2,35 @@ package com.example.finarch.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.finarch.R
 import com.example.finarch.databinding.ActivityMainBinding
-import com.example.finarch.model.AlertItem
-import com.example.finarch.model.TipoAlerta
+import com.example.finarch.model.Categoria
+import com.example.finarch.model.Movimiento
+import com.example.finarch.model.TipoMovimiento
 import com.example.finarch.utils.AlertsAdapter
+import com.example.finarch.utils.calcularAlertas
+import com.example.finarch.utils.calcularPorcentajeGastos
+import com.example.finarch.utils.calcularResumenMes
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
-import com.example.finarch.R
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val db = Firebase.firestore
     private lateinit var auth: FirebaseAuth
+    private var isBalanceVisible = true
 
     companion object {
         private const val TAG = "MainActivity"
@@ -39,50 +48,143 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Redireccionamiento a la vista del perfil
-        binding.imgProfile.setOnClickListener {
-            val intent = Intent(this@MainActivity, Perfil::class.java)
-            startActivity(intent)
+        configurarRecyclerView()
+        configurarToggleBalance()
+
+        binding.btnProfile.setOnClickListener {
+            startActivity(Intent(this, Perfil::class.java))
         }
 
-        // Redireccionamiento a la vista de reportes
         binding.btnReportsMain.setOnClickListener {
             verificarCategoriasYNavegar(ReportesResumen::class.java)
         }
 
-        // Redireccionamiento a la vista de ingresos
         binding.btnIngresoMovimiento.setOnClickListener {
             verificarCategoriasYNavegar(IngresoMovimientos::class.java)
         }
+    }
 
-        // Oculta la cantidad de dinero a preferencia del usuario
-        var isBalanceVisible = true
-        val realBalance = "$ 1,250.00"
-        val realIncome = "$ 2,000.00"
-        val realExpense = "$ 750.00"
+    override fun onStart() {
+        super.onStart()
+        cargarDashboard()
+    }
 
+    private fun configurarRecyclerView() {
+        binding.rvAlerts.layoutManager = LinearLayoutManager(this)
+        binding.rvAlerts.isNestedScrollingEnabled = false
+    }
+
+    private fun configurarToggleBalance() {
         binding.ivToggleBalance.setOnClickListener {
-            if (isBalanceVisible) {
-                binding.tvBalanceValue.text = "$ ••••••"
-                binding.tvIncomeValue.text = "$ ••••"
-                binding.tvExpenseValue.text = "$ ••••"
-                binding.ivToggleBalance.setImageResource(R.drawable.ic_visibility_off)
-            } else {
-                binding.tvBalanceValue.text = realBalance
-                binding.tvIncomeValue.text = realIncome
-                binding.tvExpenseValue.text = realExpense
-                binding.ivToggleBalance.setImageResource(R.drawable.ic_visibility)
-            }
             isBalanceVisible = !isBalanceVisible
+            actualizarVisibilidadBalance()
+        }
+    }
+
+    private fun actualizarVisibilidadBalance() {
+        if (isBalanceVisible) {
+            binding.ivToggleBalance.setImageResource(R.drawable.ic_visibility)
+        } else {
+            binding.ivToggleBalance.setImageResource(R.drawable.ic_visibility_off)
+        }
+        // Los valores se recargan desde cargarDashboard
+        // solo ocultamos visualmente
+        val balanceText = binding.tvBalanceValue.tag?.toString() ?: "$ 0.00"
+        val incomeText = binding.tvIncomeValue.tag?.toString() ?: "$ 0.00"
+        val expenseText = binding.tvExpenseValue.tag?.toString() ?: "$ 0.00"
+
+        binding.tvBalanceValue.text = if (isBalanceVisible) balanceText else "$ ••••••"
+        binding.tvIncomeValue.text = if (isBalanceVisible) incomeText else "$ ••••"
+        binding.tvExpenseValue.text = if (isBalanceVisible) expenseText else "$ ••••"
+    }
+
+    private fun cargarDashboard() {
+        val uid = auth.currentUser?.uid ?: return
+
+        // Obtener mes actual
+        val calendar = Calendar.getInstance()
+        val mes = String.format("%02d", calendar.get(Calendar.MONTH) + 1)
+        val anio = calendar.get(Calendar.YEAR).toString()
+
+        // Cargar categorías y movimientos en paralelo
+        val categorias = mutableListOf<Categoria>()
+        val movimientos = mutableListOf<Movimiento>()
+        var categoriasListas = false
+        var movimientosListos = false
+
+        fun procesarSiTodoListo() {
+            if (!categoriasListas || !movimientosListos) return
+
+            // Filtrar movimientos del mes actual
+            val movimientosMes = movimientos.filter {
+                it.fecha.length == 10 &&
+                        it.fecha.substring(3, 5) == mes &&
+                        it.fecha.substring(6, 10) == anio
+            }
+
+            // Calcular resumen
+            val (ingresos, gastos, saldo) = calcularResumenMes(movimientosMes)
+
+            // Guardar valores reales en tag para el toggle
+            val balanceStr = "$ ${String.format("%.2f", saldo)}"
+            val ingresosStr = "$ ${String.format("%.2f", ingresos)}"
+            val gastosStr = "$ ${String.format("%.2f", gastos)}"
+
+            binding.tvBalanceValue.tag = balanceStr
+            binding.tvIncomeValue.tag = ingresosStr
+            binding.tvExpenseValue.tag = gastosStr
+
+            // Actualizar UI con visibilidad actual
+            actualizarVisibilidadBalance()
+
+            // Barra de progreso gastos
+            val porcentaje = calcularPorcentajeGastos(movimientosMes, categorias)
+            binding.progressExpense.progress = porcentaje
+            binding.tvExpenseHint.text = "$porcentaje% del presupuesto"
+
+            // Alertas
+            val alertas = calcularAlertas(movimientosMes, categorias)
+            if (alertas.isEmpty()) {
+                binding.cardAlerts.visibility = View.GONE
+                binding.tvAlertsTitle.visibility = View.GONE
+            } else {
+                binding.cardAlerts.visibility = View.VISIBLE
+                binding.tvAlertsTitle.visibility = View.VISIBLE
+                binding.rvAlerts.adapter = AlertsAdapter(alertas)
+            }
         }
 
-        // RecyclerView de alertas
-        val alertas = listOf(
-            AlertItem("Presupuesto de comida excedido (10%)", TipoAlerta.ADVERTENCIA),
-            AlertItem("Pago próximo: Internet en 3 días", TipoAlerta.INFO)
-        )
-        binding.rvAlerts.layoutManager = LinearLayoutManager(this)
-        binding.rvAlerts.adapter = AlertsAdapter(alertas)
+        // Cargar categorías
+        db.collection("users").document(uid)
+            .collection("categorias")
+            .get()
+            .addOnSuccessListener { documentos ->
+                categorias.addAll(documentos.mapNotNull {
+                    it.toObject(Categoria::class.java)
+                })
+                categoriasListas = true
+                procesarSiTodoListo()
+            }
+            .addOnFailureListener {
+                categoriasListas = true
+                procesarSiTodoListo()
+            }
+
+        // Cargar movimientos
+        db.collection("users").document(uid)
+            .collection("movimientos")
+            .get()
+            .addOnSuccessListener { documentos ->
+                movimientos.addAll(documentos.mapNotNull {
+                    it.toObject(Movimiento::class.java)
+                })
+                movimientosListos = true
+                procesarSiTodoListo()
+            }
+            .addOnFailureListener {
+                movimientosListos = true
+                procesarSiTodoListo()
+            }
     }
 
     private fun verificarCategoriasYNavegar(destino: Class<*>) {

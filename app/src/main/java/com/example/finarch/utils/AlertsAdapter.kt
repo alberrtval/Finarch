@@ -33,12 +33,17 @@ class AlertsAdapter(private val alertas: List<AlertItem>) :
             TipoAlerta.ADVERTENCIA -> {
                 holder.icon.setImageResource(R.drawable.ic_warning)
                 holder.icon.imageTintList =
-                    ContextCompat.getColorStateList(holder.itemView.context, R.color.cl_error)
+                    ContextCompat.getColorStateList(holder.itemView.context, R.color.cl_advertencia)
             }
             TipoAlerta.INFO -> {
                 holder.icon.setImageResource(R.drawable.ic_info)
                 holder.icon.imageTintList =
                     ContextCompat.getColorStateList(holder.itemView.context, android.R.color.holo_blue_light)
+            }
+            TipoAlerta.ERROR -> {
+                holder.icon.setImageResource(R.drawable.ic_info)
+                holder.icon.imageTintList =
+                    ContextCompat.getColorStateList(holder.itemView.context, R.color.cl_error)
             }
         }
     }
