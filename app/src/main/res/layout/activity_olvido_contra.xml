@@ -43,34 +43,6 @@
             android:layout_marginBottom="20dp"
             android:gravity="center" />
 
-        <!--Input del nombre completo-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/cl_texto_princ"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:hintTextColor="@color/cl_texto_princ"
-            app:boxStrokeColor="@color/cl_divisor"
-            android:layout_marginBottom="2dp"
-            app:boxBackgroundMode="outline"
-            app:boxBackgroundColor="@color/cl_secundario">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nombre completo"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/cl_texto_princ"
-                android:textSize="16sp"
-                android:fontFamily="@font/inter_regular"
-                android:padding="12dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
         <!--Input del correo-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
