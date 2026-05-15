@@ -12,8 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finarch.R
 import com.example.finarch.databinding.ActivityMainBinding
 import com.example.finarch.model.Categoria
+import com.example.finarch.model.EventoCalendario
 import com.example.finarch.model.Movimiento
 import com.example.finarch.model.TipoMovimiento
+import com.example.finarch.network.CalendarioApi
+import com.example.finarch.ui.adapters.EventoAdapter
 import com.example.finarch.utils.AlertsAdapter
 import com.example.finarch.utils.calcularAlertas
 import com.example.finarch.utils.calcularPorcentajeGastos
@@ -50,6 +53,8 @@ class MainActivity : AppCompatActivity() {
 
         configurarRecyclerView()
         configurarToggleBalance()
+        configurarRecyclerViewNoticias()
+        cargarEventos()
 
         binding.btnProfile.setOnClickListener {
             startActivity(Intent(this, Perfil::class.java))
@@ -206,5 +211,40 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, destino))
                 }
             }
+    }
+
+    private fun configurarRecyclerViewNoticias() {
+        binding.rvNoticias.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.HORIZONTAL, false
+        )
+    }
+
+    private fun cargarEventos() {
+        CalendarioApi.create().getEventos().enqueue(object : retrofit2.Callback<List<EventoCalendario>> {
+            override fun onResponse(
+                call: retrofit2.Call<List<EventoCalendario>>,
+                response: retrofit2.Response<List<EventoCalendario>>
+            ) {
+                if (!response.isSuccessful) return
+
+                val hoy = java.util.Calendar.getInstance()
+                val formatoApi = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
+
+                val proximosEventos = response.body()
+                    ?.sortedByDescending { it.fecha }
+                    ?.take(5)
+                    ?: emptyList()
+
+                binding.rvNoticias.adapter = EventoAdapter(proximosEventos)
+            }
+
+            override fun onFailure(call: retrofit2.Call<List<EventoCalendario>>, t: Throwable) {
+                Toast.makeText(
+                    this@MainActivity,
+                    "Error al cargar eventos",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
 }

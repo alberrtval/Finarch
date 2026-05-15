@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/cl_secundario">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/tvTipoEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="académico"
+            android:textSize="11sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@color/cl_text_ter"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvNombreEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inicio de clases"
+            android:textColor="@color/cl_texto_princ"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter_regular"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginBottom="10dp"/>
+
+        <View
+            android:id="@+id/viewTipoIndicador"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/cl_divisor"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvFechaEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 ene 2026"
+            android:textColor="@color/cl_text_ter"
+            android:textSize="12sp"
+            android:fontFamily="@font/inter_regular"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
